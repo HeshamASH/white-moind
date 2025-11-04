@@ -28,6 +28,58 @@ const mapHistoryToApi = (chatHistory: ChatMessage[]) => {
     }).filter(c => c.parts.length > 0);
 };
 
+/**
+ * STEP 1: Fast Intent Classification (Router Agent)
+ * This function uses a lightweight model to quickly determine if the user is asking
+ * a question that requires a document search or just making a social comment.
+ */
+const classifyIntent = async (userQuery: string): Promise<'query_documents' | 'chit_chat'> => {
+    const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+    
+    const prompt = `You are an intent classifier for a chatbot. Your job is to determine if the user's message is a 'query_documents' (asking for specific information) or 'chit_chat' (a social comment, greeting, or statement).
+
+Respond with only one word: 'query_documents' or 'chit_chat'.
+
+User: "what are the fees for withdrawal?"
+Assistant: query_documents
+
+User: "Hello, how are you?"
+Assistant: chit_chat
+
+User: "my name is hesham"
+Assistant: chit_chat
+
+User: "Tell me about the marketing plan."
+Assistant: query_documents
+
+User: "That's great, thanks!"
+Assistant: chit_chat
+
+User: "List the critical points in this agreement"
+Assistant: query_documents
+
+User: "${userQuery}"
+Assistant:`;
+
+    try {
+        const response = await ai.models.generateContent({
+            model: 'gemini-2.5-flash-lite-preview-09-2025',
+            contents: [{ role: 'user', parts: [{ text: prompt }] }],
+        });
+
+        const classification = response.text.trim().toLowerCase();
+        
+        if (classification.includes('query_documents')) {
+            return 'query_documents';
+        }
+        return 'chit_chat';
+    } catch (error) {
+        console.error("Error in intent classification:", error);
+        // Default to document search if classification fails
+        return 'query_documents';
+    }
+};
+
 
 export const getAgenticResponse = async (
     chatHistory: ChatMessage[],
@@ -36,21 +88,20 @@ export const getAgenticResponse = async (
     const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
     
     try {
-        // FIX: The 'findLast' method is not available in the target JavaScript environment.
-        // Replaced with a compatible alternative that reverses a copy of the array and
-        // uses 'find' to get the last user query.
         const latestUserQuery = [...chatHistory].reverse().find(m => m.role === MessageRole.USER)?.content || '';
         
-        // 1. Perform RAG search to get context
-        const sources = await searchKnowledgeBase(latestUserQuery);
-        
-        // 2. Construct the context for the model
-        const context = sources.length > 0
-            ? sources.map(s => `Source File: ${s.source.fileName}\nPath: ${s.source.path}\nContent:\n${s.highlightSnippet}`).join('\n\n---\n\n')
-            : "No relevant documents were found.";
+        // --- ROUTER LOGIC ---
+        const intent = await classifyIntent(latestUserQuery);
 
-        // 3. Create the system instruction prompt
-        const systemInstruction = `You are a professional and helpful customer service AI agent. Your task is to answer the user's question based ONLY on the provided context below. Do not use any external knowledge.
+        // --- PATH 1: User is asking a question about the documents ---
+        if (intent === 'query_documents') {
+            const sources = await searchKnowledgeBase(latestUserQuery);
+            
+            const context = sources.length > 0
+                ? sources.map(s => `Source File: ${s.source.fileName}\nPath: ${s.source.path}\nContent:\n${s.highlightSnippet}`).join('\n\n---\n\n')
+                : "No relevant documents were found.";
+
+            const systemInstruction = `You are a professional and helpful customer service AI agent. Your task is to answer the user's question based ONLY on the provided context below. Do not use any external knowledge.
 - If the answer is in the context, provide a comprehensive answer and cite the source file name(s) you used.
 - If the context does not contain the answer, you MUST state that you cannot find the information in the provided documents. Do not try to answer from memory or make up information.
 - Format your answers clearly using markdown.
@@ -58,21 +109,51 @@ export const getAgenticResponse = async (
 CONTEXT:
 ${context}
 `;
+            const contents = mapHistoryToApi(chatHistory);
+            
+            const response = await ai.models.generateContent({
+                model: model,
+                contents: contents,
+                config: {
+                  systemInstruction: systemInstruction,
+                },
+            });
 
-        const contents = mapHistoryToApi(chatHistory);
+            return {
+                content: response.text,
+                sources: sources,
+            };
+        } 
         
-        const response = await ai.models.generateContent({
-            model: model,
-            contents: contents,
-            config: {
-              systemInstruction: systemInstruction,
-            },
-        });
+        // --- PATH 2: User is just making a social comment ---
+        else { // intent is 'chit_chat'
+            const prompt = `You are a helpful and friendly assistant whose main purpose is to answer questions about a specific set of documents.
 
-        return {
-            content: response.text,
-            sources: sources,
-        };
+The user is not asking a question about the documents, but is making a social comment.
+Respond politely and conversationally. If appropriate, gently guide the user back to your main purpose.
+
+User: "my name is hesham"
+Assistant: "It's nice to meet you, Hesham! How can I help you with the provided documents today?"
+
+User: "thanks"
+Assistant: "You're welcome! Do you have any other questions about the documents?"
+
+User: "hello"
+Assistant: "Hello! I'm ready to answer your questions about the provided context."
+
+User: "${latestUserQuery}"
+Assistant:`;
+
+            const response = await ai.models.generateContent({
+                model: model,
+                contents: [{ role: 'user', parts: [{ text: prompt }] }],
+            });
+
+            return {
+                content: response.text,
+                sources: [], // No sources for chit-chat
+            };
+        }
 
     } catch (error: any) {
         console.error("Error calling Gemini API:", error);
