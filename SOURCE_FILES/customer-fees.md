@@ -10,6 +10,7 @@ PayPal as residents of the same market.
 residents of different markets. Certain markets are grouped together when calculating 
 international transaction rates. For a listing of our groupings, please access our 
 Market/Region
+
  Grouping Table.
  International euro (EUR) or Swedish krona (SEK) transactions where both the sender and the 
 receiver are registered with or identified by PayPal as resident in the European Economic Area 
@@ -34,6 +35,7 @@ Grenadines (VC)
  Egypt (EG) Mauritius (MU) Serbia (RS)
  Argentina (AR) El Salvador (SV) Moldova (MD) Seychelles (SC)
  Armenia (AM) Eritrea (ER) Mongolia (MN) Sierra Leone (SL)
+
 Aruba (AW) Ethiopia (ET) Montenegro (ME) Singapore (SG)
  Azerbaijan Republic 
 (AZ)
@@ -54,6 +56,7 @@ Benin (BJ) Georgia (GE) New Caledonia (NC) Tajikistan (TJ)
  Bhutan (BT) Grenada (GD) Nicaragua (NI) Togo (TG)
  Bolivia (BO)
  Guatemala (GT)
+
  Niger (NE) Tonga (TO)
  Guinea (GN)
  Bosnia & 
@@ -85,6 +88,7 @@ Columbia (CO) Laos (LA) Republic of the Congo
  Costa Rica (CR) Madagascar (MG) Saint Kitts & Nevis (KN)
  Cote d’Ivoire (CI) Malawi (MW) Saint Lucia (LC)
  Croatia (HR) Malaysia (MY) Saint Pierre & 
+
 Miquelon (PM)
  It’s free to use PayPal to pay for a purchase or any other type of commercial transaction unless it 
 involves a currency conversion.
@@ -101,6 +105,7 @@ PayPal Merchant Fees Page.
  Sending and receiving payments
  When you send funds (initiated from the “Friends and Family” tab of the “Send” flow) to, or receive 
 funds into your PayPal account from, friends and family without making an underlying commercial 
+
 transaction (that is, the payment is not for the purchase of goods or services or for making any 
 other commercial transaction), we call that a “personal transaction”.
  Personal transactions are limited in availability and may not be available in some markets. If you 
@@ -125,6 +130,7 @@ Market/Region
  Payment 
 Method
  Sender 
+
 Market/Region
  Recipient Market/Region Rate
 PayPal Balance or 
@@ -141,6 +147,7 @@ Northern Europe, & US
  Any other market 3.99 EUR
  NZ Any market 6.99 NZD
  Any other market where 
+
 available
  Any market 4.99 USD
  Cards AD, HR, IS, & MC Canada, Europe I, Europe II, 
@@ -158,6 +165,7 @@ Northern Europe, & US
  1.99 EUR + 
 3.4% + fixed 
 fee
+
  Any other market 3.99 EUR + 
 3.4% + fixed 
 fee
@@ -177,7 +185,9 @@ Market/Region
 Personal payments:
  We will collect the fee from balance in the currency in which the fee is payable. To do this, we may need to convert
  the fee amount from your sending balance into the currency in which the fee is payable, in which case the fees for “Currency
- Conversions” also apply. If you use another payment method to partially fund the payment, the fee will be pro-rated.
+ Conversions” also apply. If you use another payment method to partially fund the payment, the fee will be pro-
+ 
+ rated.
  Fixed fee for personal transactions (based on currency received)
  Australian dollar 0.30 AUD
  Brazilian real 0.60 BRL
@@ -185,6 +195,7 @@ Personal payments:
  Czech koruna 10.00 CZK
  Danish krone 2.60 DKK
  Euro 0.35 EUR
+
  Currency Fee
 Hong Kong dollar 2.35 HKD
  Hungarian forint 90.00 HUF
@@ -192,6 +203,7 @@ Hong Kong dollar 2.35 HKD
  Japanese yen 40.00 JPY
  Malaysian ringgit 2.00 MYR
  Mexican peso 4.00 MXN
+ 
  Currency Fee
  New Taiwan dollar 10.00 TWD
  Currency Fee

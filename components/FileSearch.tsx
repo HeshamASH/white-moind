@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Source, ElasticResult } from '../types';
+// FIX: Corrected import path for elasticService.
 import { getAllFiles } from '../services/elasticService';
 
 

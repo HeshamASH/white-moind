@@ -1,8 +1,5 @@
 // types.ts
 
-// FIX: Added React import for React.Dispatch used in ChatContextType
-import React from 'react';
-
 export enum MessageRole {
   USER = 'user',
   MODEL = 'model',
@@ -10,7 +7,8 @@ export enum MessageRole {
   TOOL = 'tool',
 }
 
-export type ModelType = 'gemini-2.5-flash' | 'gemini-2.5-pro' | 'gemini-2.5-flash-lite-preview-09-2025';
+// FIX: Corrected model name for gemini flash lite.
+export type ModelType = 'gemini-2.5-flash' | 'gemini-2.5-pro' | 'gemini-flash-lite-latest';
 
 // FIX: Added and exported Source type for file/document sources.
 export interface Source {
@@ -63,41 +61,4 @@ export interface ChatSession {
   model: ModelType;
   // FIX: Added optional customDataset to handle user-uploaded files.
   customDataset?: ElasticResult[];
-}
-
-// --- Chat Context, State, and Actions for React Context API ---
-
-// FIX: Added and exported ChatState interface for the chat reducer state.
-export interface ChatState {
-  sessions: Record<string, ChatSession>;
-  activeSessionId: string | null;
-  isLoading: boolean;
-  appIsLoading: boolean;
-}
-
-// FIX: Added and exported ChatAction type for the chat reducer actions.
-export type ChatAction =
-  | { type: 'START_LOADING' }
-  | { type: 'STOP_LOADING' }
-  | { type: 'INITIAL_LOAD_COMPLETE'; payload: { sessions: Record<string, ChatSession>; activeSessionId: string | null } }
-  | { type: 'CREATE_SESSION'; payload: ChatSession }
-  | { type: 'DELETE_SESSION'; payload: { sessionId: string; nextActiveId: string | null } }
-  | { type: 'SET_ACTIVE_SESSION'; payload: string | null }
-  | { type: 'ADD_MESSAGE'; payload: { sessionId: string; message: ChatMessage } }
-  | { type: 'UPDATE_LAST_MESSAGE'; payload: { sessionId: string; updatedMessage: Partial<ChatMessage> } }
-  | { type: 'UPDATE_SESSION_DETAILS'; payload: { sessionId: string } & Partial<ChatSession> }
-  | { type: 'SET_SESSIONS', payload: Record<string, ChatSession> }
-  | { type: 'SAVE_SESSION', payload: { sessionId: string } };
-
-// FIX: Added and exported ChatContextType for the ChatContext.
-export interface ChatContextType {
-  state: ChatState;
-  dispatch: React.Dispatch<ChatAction>;
-  handleSendMessage: (query: string, image?: string) => Promise<void>;
-  handleModelChange: (newModel: ModelType) => void;
-  handleFilesUploaded: (fileList: FileList) => Promise<void>;
-  handleSelectSession: (id: string) => void;
-  handleDeleteSession: (id: string) => Promise<void>;
-  createNewSession: (model?: ModelType, setActive?: boolean) => Promise<string>;
-  handlePlayAudio: (text: string) => Promise<void>;
 }

@@ -1,4 +1,3 @@
-
 // components/ChatInterface.tsx
 import React, { useState, useRef, useEffect } from 'react';
 import { MessageRole, ChatSession, ElasticResult } from '../types';
@@ -15,8 +14,8 @@ const WelcomeBlock: React.FC<{ onSendMessage: (query: string) => void }> = ({ on
     return (
         <div className="flex flex-col items-center justify-center h-full p-8 text-center">
             <div className="max-w-3xl">
-                <h2 className="text-4xl font-bold text-gray-800 mb-2">Welcome to your helpful AI assistant</h2>
-                <p className="text-lg text-gray-500 mb-10">
+                <h2 className="text-4xl font-bold text-gray-800 dark:text-gray-100 mb-2">Welcome to your helpful AI assistant</h2>
+                <p className="text-lg text-gray-500 dark:text-gray-400 mb-10">
                     Ask any question about our services, fees, and policies.
                 </p>
 
@@ -25,7 +24,7 @@ const WelcomeBlock: React.FC<{ onSendMessage: (query: string) => void }> = ({ on
                         <button
                             key={index}
                             onClick={() => onSendMessage(prompt)}
-                            className="bg-white p-4 rounded-lg border border-gray-200 hover:bg-gray-100 hover:border-blue-500 transition-all duration-200 cursor-pointer text-gray-700 shadow-sm"
+                            className="bg-white dark:bg-gray-700 p-4 rounded-lg border border-gray-200 dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-600 hover:border-blue-500 transition-all duration-200 cursor-pointer text-gray-700 dark:text-gray-200 shadow-sm"
                         >
                             <p className="font-semibold">{prompt}</p>
                         </button>
@@ -80,14 +79,14 @@ const ChatInterface: React.FC<ChatInterfaceProps> = ({ activeSession, isLoading,
   
   if (!activeSession) {
     return (
-        <div className="flex items-center justify-center h-full text-gray-500">
+        <div className="flex items-center justify-center h-full text-gray-500 dark:text-gray-400">
             <p>Select or create a new chat to begin.</p>
         </div>
     );
   }
 
   return (
-    <div className="flex flex-col h-full bg-white">
+    <div className="flex flex-col h-full bg-white dark:bg-gray-800">
       <div className="flex-1 overflow-y-auto p-6">
         {activeSession.messages.length === 0 ? (
             <WelcomeBlock onSendMessage={onSendMessage} />
@@ -107,7 +106,7 @@ const ChatInterface: React.FC<ChatInterfaceProps> = ({ activeSession, isLoading,
         <div ref={messagesEndRef} />
       </div>
 
-      <div className="px-6 py-4 border-t border-gray-200 bg-white">
+      <div className="px-6 py-4 border-t border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800">
         <form onSubmit={handleSubmit} className="flex flex-col gap-2">
             {imagePreview && (
                 <div className="relative self-start">
@@ -115,7 +114,7 @@ const ChatInterface: React.FC<ChatInterfaceProps> = ({ activeSession, isLoading,
                     <button 
                         type="button" 
                         onClick={() => setImagePreview(null)}
-                        className="absolute -top-2 -right-2 bg-gray-700 text-white rounded-full p-0.5 border-2 border-white hover:bg-gray-600"
+                        className="absolute -top-2 -right-2 bg-gray-700 text-white rounded-full p-0.5 border-2 border-white dark:border-gray-800 hover:bg-gray-600"
                         aria-label="Remove image"
                     ><CloseIcon /></button>
                 </div>
@@ -125,20 +124,20 @@ const ChatInterface: React.FC<ChatInterfaceProps> = ({ activeSession, isLoading,
                     type="button"
                     onClick={() => fileInputRef.current?.click()}
                     disabled={isLoading}
-                    className="p-2 text-gray-500 hover:text-gray-800 disabled:text-gray-300 disabled:cursor-not-allowed transition-colors"
+                    className="p-2 text-gray-500 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-200 disabled:text-gray-300 dark:disabled:text-gray-600 disabled:cursor-not-allowed transition-colors"
                     aria-label="Attach file"
                 ><AttachmentIcon /></button>
                 <input
                     type="text" value={input} onChange={(e) => setInput(e.target.value)}
                     placeholder="Ask a question..."
-                    className="flex-1 w-full bg-gray-100 border border-gray-300 rounded-lg px-4 py-3 text-gray-800 focus:ring-2 focus:ring-blue-500 focus:outline-none transition duration-200 placeholder-gray-500"
+                    className="flex-1 w-full bg-gray-100 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg px-4 py-3 text-gray-800 dark:text-gray-100 focus:ring-2 focus:ring-blue-500 focus:outline-none transition duration-200 placeholder-gray-500 dark:placeholder-gray-400"
                     disabled={isLoading}
                 />
                 <input type="file" ref={fileInputRef} onChange={handleFileChange} className="hidden" accept="image/*" />
                 <button
                     type="submit"
                     disabled={isLoading || (!input.trim() && !imagePreview)}
-                    className="bg-blue-600 text-white rounded-lg p-3 hover:bg-blue-500 disabled:bg-gray-300 disabled:text-gray-500 transition-colors duration-200"
+                    className="bg-blue-600 text-white rounded-lg p-3 hover:bg-blue-500 disabled:bg-gray-300 dark:disabled:bg-gray-600 disabled:text-gray-500 dark:disabled:text-gray-400 transition-colors duration-200"
                     aria-label="Send message"
                 ><SendIcon /></button>
           </div>

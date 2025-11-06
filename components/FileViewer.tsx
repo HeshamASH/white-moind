@@ -25,7 +25,7 @@ const FileViewer: React.FC<FileViewerProps> = ({ file, content, onClose, highlig
       <span>
         {parts.map((part, i) =>
           part.toLowerCase() === highlightText.toLowerCase() ? (
-            <mark key={i} className="bg-yellow-200 text-black px-1 rounded">
+            <mark key={i} className="bg-yellow-200 dark:bg-yellow-400 text-black px-1 rounded">
               {part}
             </mark>
           ) : (
@@ -42,21 +42,21 @@ const FileViewer: React.FC<FileViewerProps> = ({ file, content, onClose, highlig
       onClick={onClose}
     >
       <div 
-        className="bg-white border border-gray-200 rounded-lg w-full max-w-4xl max-h-[80vh] flex flex-col shadow-2xl"
+        className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg w-full max-w-4xl max-h-[80vh] flex flex-col shadow-2xl"
         onClick={e => e.stopPropagation()}
       >
-        <header className="flex items-center justify-between p-4 border-b border-gray-200 flex-shrink-0">
+        <header className="flex items-center justify-between p-4 border-b border-gray-200 dark:border-gray-700 flex-shrink-0">
           <div>
-            <h3 className="font-bold text-lg text-blue-600">{file.fileName}</h3>
-            <p className="text-sm text-gray-500">{file.path}</p>
+            <h3 className="font-bold text-lg text-blue-600 dark:text-blue-400">{file.fileName}</h3>
+            <p className="text-sm text-gray-500 dark:text-gray-400">{file.path}</p>
           </div>
-          <button onClick={onClose} className="text-gray-500 hover:text-gray-900 transition-colors" aria-label="Close file viewer">
+          <button onClick={onClose} className="text-gray-500 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors" aria-label="Close file viewer">
             <CloseIcon />
           </button>
         </header>
         <main className="p-6 overflow-auto">
-          <div className="bg-gray-50 rounded-md p-4">
-            <div className="text-base text-gray-800 whitespace-pre-wrap leading-relaxed">
+          <div className="bg-gray-50 dark:bg-gray-900 rounded-md p-4">
+            <div className="text-base text-gray-800 dark:text-gray-200 whitespace-pre-wrap leading-relaxed">
               {content === 'Loading...' ? 'Loading...' : highlightedContent}
             </div>
           </div>

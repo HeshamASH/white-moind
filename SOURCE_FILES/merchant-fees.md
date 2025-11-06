@@ -1,6 +1,8 @@
 Last Updated: August 18, 2025
  You can find details about changes to our rates and fees and when they will apply on our
  Policy Updates Page or as otherwise required by the user agreement. You can also get to 
+
+
 the 
 Policy Updates Page by clicking ‘Legal’ at the bottom of any webpage and then 
 selecting ‘Policy Updates'.
@@ -8,6 +10,7 @@ selecting ‘Policy Updates'.
  A transaction occurring when both the sender and receiver are registered with or identified 
 by PayPal as residents of the same market.
  International
+
  A transaction occurring when the sender and receiver are registered with or identified by 
 PayPal as residents of different markets. Certain markets are grouped together when 
 calculating international transaction rates. For a listing of our groupings, please access our 
@@ -19,12 +22,15 @@ PayPal market codes, please access our Market
 Relevant Market/Region
  Code Table.
  Rates published below apply to PayPal accounts of residents of the following market/region:
+
+
  Market/Region list
  United States (US)
  Commercial Transaction Rates
  When you accept the 
 User Agreement to buy or sell goods or services or make any other 
 commercial type of transaction, we call that a “commercial transaction”.
+
  Standard rate for receiving domestic transactions
 Alternative Payment Method (APM) APM Transaction Rates Apply
  PayPal Checkout 3.49% + fixed fee
@@ -40,6 +46,7 @@ Services
  Standard Credit and Debit Card 
 Payments
  2.99% + fixed fee
+
  PayPal Pay Later options 4.99% + fixed fee
  All Other Commercial Transactions 3.49% + fixed fee
  Payment Type Rate
@@ -58,6 +65,7 @@ fee for international commercial transactions.
  Danish krone 2.90 DKK
  Euro 0.39 EUR
  Currency Fee
+
 Hong Kong dollar 3.79 HKD
  Hungarian forint 149.00 HUF
  Israeli new shekel 1.60 ILS
@@ -79,6 +87,7 @@ Russian ruble 39.00 RUB
  UK pounds sterling 0.39 GBP
  US dollar 0.49 USD
  Currency Fee
+
  Fixed fee for QR code transactions (based on currency received)
  Australian dollar 0.12 AUD
  Brazilian real 0.50 BRL
@@ -92,6 +101,7 @@ Czech koruna 1.90 CZK
  Israeli new shekel 0.30 ILS
  Japanese yen 9.00 JPY
  Malaysian ringgit 0.40 MYR
+
  Mexican peso 1.79 MXN
  Currency Fee
  New Taiwan dollar 3.00 TWD
@@ -117,6 +127,7 @@ Activity
 Store Cash 
 transactions
  All applicable PayPal transaction fees are 
+
 calculated from the cart total, after any Store 
 Cash offers being applied by the PayPal user. For 
 more information about Campaign Fee 
@@ -135,6 +146,7 @@ account.
  200.01 - 1000.00 USD 1.80%
  1000.01 USD + 1.50%
  Purchase or sale amount Fee
+
  The fees above do not apply to buying and selling PYUSD.
  Transferring a cryptocurrency using your business account
  Receiving a Crypto Asset transfer No Fee
@@ -145,6 +157,7 @@ network fee, payable in the Crypto
 Asset you transfer, which varies. For 
 details on the network fee, see the 
 PayPal Cryptocurrency Terms and 
+
 Transfer Type Fee
 Conditions. We will display such 
 network fee right before you transfer 
@@ -163,6 +176,7 @@ Payments, Apple Pay, or other third
 party wallets
  2.99% + fixed fee
  PayPal Pay Later options 4.99% + fixed fee
+
  Payment Type through an 
 Invoicing Transaction
  Rate
@@ -184,6 +198,7 @@ Invoicing Transaction
  Danish krone 2.90 DKK
  Euro 0.39 EUR
  Hong Kong dollar 3.79 HKD
+
  Hungarian forint 149.00 HUF
  Currency Fee
 Israeli new shekel 1.60 ILS
@@ -210,6 +225,7 @@ Swedish krona 4.09 SEK
 Subscription Service, the following applies:
  Invoicing Subscription 14.99 USD per month
  Service Type Rate
+
  When you use the Bill Pay for Business Accounts service to send funds to your Payees, we 
 call that a “Bill Pay for Business Accounts Transaction”.
  Bill Pay for Business Accounts Transaction Rates
@@ -234,6 +250,7 @@ disbursement rate will also include a currency conversion spread.
 PYUSD (subject to availability) 1%
  Mailed Checks 2.00 USD per check
  Virtual Card (subject to availability) No Fee
+
  Instant Transfer (subject to availability) 1% (Minimum Fee of 2.00 USD, Maximum 
 Fee of 50.00 USD)
  Pay faster by Check 20.00 USD
@@ -254,6 +271,8 @@ Czech koruna 120.00 CZK
  Hungarian forint 1,900.00 HUF
  Israeli new shekel 20.00 ILS
  Indian rupee 420.00 INR
+
+
  Japanese yen 745.00 JPY
  Currency Fee
  Korean won 7,200.00 KRW
@@ -273,6 +292,7 @@ New Zealand dollar 8.60 NZD
  US dollar 20.00 USD
  Euro 19.00 EUR
  Currency Fee
+
 Australian dollar 30.00 AUD
  Japanese yen 3,000.00 JPY
  Korean won 29,000.00 KRW
@@ -286,6 +306,7 @@ Accounts, the following applies:
 types listed below, we call that a “donation”. Funds sent or received through other products 
 or services (not set out below) are not “donations” eligible for donations pricing. In such 
 cases, the applicable transaction rates will apply and will be subject to the fees disclosed for 
+
 such products or services on the applicable fees page.
  Receiving and Sending Donations
  Standard rate for receiving domestic donations
@@ -299,6 +320,7 @@ percentage-based fee for international donations.
  Additional percentage-based fee for international donations
  All Donations 1.50%
  Payment Type Rate
+
  Fixed fee for donations (based on currency received)
  Australian dollar 0.59 AUD
  Brazilian real 2.90 BRL
@@ -312,6 +334,7 @@ Danish krone 2.90 DKK
  Israeli new shekel 1.60 ILS
  Japanese yen 49.00 JPY
  Malaysian ringgit 2.00 MYR
+
  Mexican peso 9.00 MXN
  Currency Fee
  New Taiwan dollar 14.00 TWD
@@ -332,6 +355,7 @@ Philippine peso 25.00 PHP
  Donations No fee
  Payment Type Rate
 Standard rate for sending international donations
+
  The applicable fee for sending domestic donations applies plus the applicable additional 
 percentage-based fee for international donations (international fee).
  Donations No fee (when no currency conversion 
@@ -339,6 +363,7 @@ is needed)
  Payment Type Rate
  Charity transaction rates are subject to eligibility, application, and pre-approval by PayPal, as 
 further described in the Confirmed Charity Terms and Conditions. Once approved by 
+
 PayPal, these rates will apply to certain payment types that are subject to the User 
 Agreement.
  Charity Transaction Rates
@@ -355,6 +380,7 @@ Charity Transactions 1.50%
  Fixed fee for charity transactions (based on currency received)
  Australian dollar 0.59 AUD
  Brazilian real 2.90 BRL
+
  Canadian dollar 0.59 CAD
  Czech koruna 9.00 CZK
  Danish krone 2.90 DKK
@@ -372,7 +398,7 @@ Japanese yen 49.00 JPY
  Norwegian krone 3.90 NOK
  Philippine peso 25.00 PHP
  Polish zloty 1.89 PLN
- Russian ruble 39.00 RUB
+ 
  Singapore dollar 0.69 SGD
  Swedish krona 4.09 SEK
  Currency Fee
@@ -387,6 +413,7 @@ listed in our APM agreement at checkout to pay you for purchases.
 You must accept the terms of the APM agreement before receiving APM payments.
  Alternative Payment Method Rates
  Standard rate for receiving domestic transactions
+
  Alternative Payment Method (APM) 2.89% + fixed fee
  Alternative Payment Method (APM) 
 through Pay Links and Buttons, 
@@ -400,6 +427,8 @@ Receiving international transactions
 fee for international transactions.
  Additional percentage-based fee for international APM transactions
  Alternative Payment Method (APM) 1.50%
+
+
  Payment Type Fee
  Fixed fee for APM transactions (based on currency received)
  Australian dollar 0.39 AUD
@@ -412,6 +441,7 @@ fee for international transactions.
  Currency Fee
 Hungarian forint 89.00 HUF
  Israeli new shekel 0.90 ILS
+
  Japanese yen 29.00 JPY
  Malaysian ringgit 1.20 MYR
  Mexican peso 5.00 MXN
@@ -433,6 +463,8 @@ Singapore dollar 0.49 SGD
  Fixed fee for APM transactions through Pay Links and Buttons, Payment
  Links and Buttons, Payment Links, Buy Buttons, Shopping Cart Buttons
  (based on currency received)
+
+
  Australian dollar 0.59 AUD
  Brazilian real 2.90 BRL
  Canadian dollar 0.59 CAD
@@ -445,6 +477,7 @@ Danish krone 2.90 DKK
  Israeli new shekel 1.60 ILS
  Japanese yen 49.00 JPY
  Malaysian ringgit 2.00 MYR
+
  Mexican peso 9.00 MXN
  Currency Fee
  New Taiwan dollar 14.00 TWD
@@ -458,6 +491,7 @@ Philippine peso 25.00 PHP
  Swedish krona 4.09 SEK
  Swiss franc 0.49 CHF
  Thai baht 15.00 THB
+
  UK pounds sterling 0.39 GBP
  US dollar 0.49 USD
  Currency Fee
@@ -475,6 +509,7 @@ your acceptance of the PayPal Online Payment Services Agreement. These rates wil
 to the following payment types received using PayPal Online Payment Services.
  Capitalized terms in this section are defined in the PayPal Online Payment Services 
 Agreement.
+
  PayPal Online Payment Services
  Receiving domestic transactions using PayPal Online Payment Services
  Advanced Credit and Debit Card 
@@ -489,6 +524,8 @@ Virtual Terminal 3.39% + fixed fee
  Payment Type Rate
  Charity rates for receiving transactions using PayPal Card Payment
  Services
+
+
  Charity rates for receiving transactions using the below PayPal Card Payment Services are 
 subject to eligibility, application, and pre-approval by PayPal, as further described in the 
 Confirmed Charity Terms and Conditions. See our PayPal Online Payment Services 
@@ -508,6 +545,7 @@ Payments (Interchange Plus Plus)
 Australian dollar 0.59 AUD
  Brazilian real 2.90 BRL
  Canadian dollar 0.59 CAD
+
  Czech koruna 9.00 CZK
  Danish krone 2.90 DKK
  Euro 0.39 EUR
@@ -521,6 +559,7 @@ Australian dollar 0.59 AUD
 New Taiwan dollar 14.00 TWD
  New Zealand dollar 0.69 NZD
  Norwegian krone 3.90 NOK
+
  Philippine peso 25.00 PHP
  Polish zloty 1.89 PLN
  Russian ruble 39.00 RUB
@@ -550,6 +589,7 @@ Fixed fee for PayPal Card Payment Services transactions for Advanced
 New Taiwan dollar 8.00 TWD
  New Zealand dollar 0.49 NZD
  Norwegian krone 2.30 NOK
+
  Philippine peso 15.00 PHP
  Polish zloty 1.09 PLN
  Russian ruble 23.00 RUB
@@ -596,6 +636,8 @@ Hong Kong dollar 2.99 HKD
 Russian ruble 31.00 RUB
  Singapore dollar 0.59 SGD
  Swedish krona 3.29 SEK
+
+
  Swiss franc 0.39 CHF
  Thai baht 12.00 THB
  UK pounds sterling 0.29 GBP
@@ -646,6 +688,7 @@ rejected/reversed.
  disputed by your
  customer as
  unauthorized
+
  Activity Description Fee
 Fraud 
 Protection 
@@ -709,6 +752,7 @@ notice.
 transaction
  Monthly Fees
  Advanced Credit and Debit Card 
+
 Payments and ACH Services
  No fee
  Payments Advanced 5.00 USD
@@ -739,6 +783,7 @@ site. For more information, please refer to the Payflow Gateway Services Agreeme
  Payflow Pro Transaction 0.10 USD
  Payflow Link Transaction 0.10 USD
  Payment type Fee
+
  Other fees for using Payflow
  Monthly Fees Payflow Pro 25.00 
 USD
@@ -787,6 +832,7 @@ Debit Card Payments, Apple Pay, or
 other third-party wallets
  2.99% + 0.49 USD
  Payment Type Rate
+
  PayPal Payouts (which includes the service formerly known as Mass Pay) allows you to easily 
 send payments to multiple recipients at once. We charge you a fee for each payment you 
 send using PayPal Payouts. The fee is based on the type of payment and currency in which it 
@@ -831,6 +877,7 @@ dollar
  Hungarian 
 forint
  210.00 HUF 53.00 HUF 6000.00 HUF
+
  Israeli new 
 shekel
  4.00 ILS 1.00 ILS 80.00 ILS
@@ -865,6 +912,7 @@ krone
  Philippine 
 peso
  50.00 PHP 12.50 PHP 1000.00 PHP
+
  Polish zloty 3.00 PLN 0.75 PLN 60.00 PLN
  Russian 
 ruble
@@ -895,6 +943,7 @@ sterling
 Maximum 
 Fee Cap
  US – When 
+
 using the 
 Payouts API 
 Fee
@@ -929,6 +978,7 @@ Micropayments 1.50%
  Currency Fee
 Japanese yen 9.00 JPY
  Malaysian ringgit 0.40 MYR
+
  Mexican peso 1.79 MXN
  Currency Fee
  New Taiwan dollar 3.00 TWD
@@ -960,6 +1010,7 @@ see the PayPal Online Payment Services Agreement.
  Currency Fee
 Czech koruna 400.00 CZK
  Danish krone 120.00 DKK
+
  Euro 16.00 EUR
  Hong Kong dollar 155.00 HKD
  Hungarian forint 4,325.00 HUF
@@ -973,6 +1024,7 @@ Czech koruna 400.00 CZK
  Currency Fee
 Norwegian krone 125.00 NOK
  Philippine peso 900.00 PHP
+
  Polish zloty 65.00 PLN
  Russian ruble 640.00 RUB
  Singapore dollar 28.00 SGD
@@ -1057,6 +1109,7 @@ transaction exchange rate will also include a currency conversion spread.
  goods or services are listed in.
  Sending money to a friend or family
  member such that they receive a
+
  different currency from the currency
  in which you pay.
  4.00%, or such other amount as may 
@@ -1084,6 +1137,7 @@ monetary cap indicated below (based on the currency received):
  Maximum fee cap for E-checks
  Currency Maximum fee cap
 Australian dollar 300.00 AUD
+
  Brazilian real 500.00 BRL
  Canadian dollar 300.00 CAD
  Czech koruna 5000.00 CZK
@@ -1107,6 +1161,7 @@ New Zealand dollar 400.00 NZD
  Swiss franc 300.00 CHF
  Thai baht 9000.00 THB
  UK pounds sterling 200.00 GBP
+
  US dollar 300.00 USD
  Currency Maximum fee cap
  You can typically withdraw money out of PayPal by standard withdrawals/transfers to your 
@@ -1127,6 +1182,7 @@ involved)
  1.50% of amount 
 transferred
  Minimum fee 
+
 applies based 
 on the card 
 withdrawal 
@@ -1147,6 +1203,7 @@ involved)
  Withdrawal limits apply
  1.50% of amount 
 transferred
+
  Minimum fee 
 applies based 
 on the card 
@@ -1188,6 +1245,7 @@ out of PayPal
 withdrawal/transfer out of 
 PayPal is attempted by a 
 user and it fails because 
+
 incorrect bank account 
 information or delivery 
 information is provided.
@@ -1208,6 +1266,7 @@ Refunds
  the refund, but the
  fees you originally
  paid to receive the
+
  payment are not
  returned to you.
  Partial Refunds
@@ -1255,6 +1314,8 @@ Debit MasterCard
 Cardholder 
 Agreement and 
 Privacy Notice
+
+
  PayPal Debit 
 MasterCard
  Use of the PayPal Debit 
@@ -1279,9 +1340,11 @@ Danish krone 12.50 DKK
  Hong Kong dollar 15.00 HKD
  Hungarian forint 400.00 HUF
  Israeli new shekel 8.00 ILS
+
  Japanese yen 200.00 JPY
  Malaysian ringgit Not Applicable
  Mexican peso 20.00 MXN
+
  Currency Fee
  New Taiwan dollar 70.00 TWD
  New Zealand dollar 3.00 NZD
@@ -1294,6 +1357,7 @@ Philippine peso 100.00 PHP
  Swedish krona 15.00 SEK
  Swiss franc 3.00 CHF
  Thai baht 70.00 THB
+ 
  UK pounds sterling 1.00 GBP
  US dollar 1.95 USD
  Currency Fee

@@ -1,4 +1,3 @@
-
 import React, { useRef, useEffect } from 'react';
 import { ChatMessage, MessageRole, ElasticResult } from '../types';
 import { marked } from 'marked';
@@ -34,69 +33,61 @@ const CodeBlock: React.FC<{ code: string; language?: string; }> = ({ code, langu
   );
 };
 
-// --- FIX: Updated Marked.js renderer to use modern API ---
-const renderer = new marked.Renderer();
-
-// Override methods for professional styling
-renderer.heading = (text: string, level: 1 | 2 | 3 | 4 | 5 | 6) => {
-    const baseClasses = "font-bold mt-4 mb-2";
-    let sizeClass = "";
-    // Invert color for user messages
-    const colorClass = "prose-headings:text-gray-800"; 
-    
-    switch (level) {
-      case 1: sizeClass = "text-2xl border-b border-gray-200 pb-2"; break;
-      case 2: sizeClass = "text-xl border-b border-gray-200 pb-2"; break;
-      case 3: sizeClass = "text-lg"; break;
-      default: sizeClass = "text-base";
+// FIX: Updated renderer to match modern 'marked' API (v4+).
+// This resolves type errors related to 'RendererObject' and 'Tokens'.
+const renderer = {
+    heading(text: string, level: number) {
+        const baseClasses = "font-bold mt-4 mb-2";
+        let sizeClass = "";
+        const colorClass = "prose-headings:text-gray-800 dark:prose-headings:text-gray-100"; 
+        
+        switch (level) {
+          case 1: sizeClass = "text-2xl border-b border-gray-200 dark:border-gray-600 pb-2"; break;
+          case 2: sizeClass = "text-xl border-b border-gray-200 dark:border-gray-600 pb-2"; break;
+          case 3: sizeClass = "text-lg"; break;
+          default: sizeClass = "text-base";
+        }
+        return `<h${level} class="${baseClasses} ${sizeClass} ${colorClass}">${text}</h${level}>`;
+    },
+    table(header: string, body: string) {
+        return `<div class="overflow-x-auto my-4"><table class="min-w-full divide-y divide-gray-200 dark:divide-gray-600 border border-gray-300 dark:border-gray-600">
+                  <thead>${header}</thead>
+                  <tbody>${body}</tbody>
+                </table></div>`;
+    },
+    tablecell(content: string, flags: { header: boolean; align: 'center' | 'left' | 'right' | null; }) {
+        const tag = flags.header ? 'th' : 'td';
+        const alignClass = flags.align ? `text-${flags.align}` : 'text-left';
+        const cellClasses = flags.header 
+            ? `px-4 py-2 text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider ${alignClass}`
+            : `px-4 py-2 text-sm text-gray-600 dark:text-gray-300 ${alignClass}`;
+        
+        return `<${tag} class="${cellClasses}">${content}</${tag}>`;
+    },
+    link(href: string, title: string | null | undefined, text: string) {
+        const titleAttr = title ? `title="${title}"` : '';
+        const linkColor = "text-blue-600 dark:text-blue-400 hover:underline";
+        return `<a href="${href}" target="_blank" rel="noopener noreferrer" class="${linkColor}" ${titleAttr}>${text}</a>`;
+    },
+    list(body: string, ordered: boolean, start: number | '') {
+        const tag = ordered ? 'ol' : 'ul';
+        const listClasses = ordered ? "list-decimal list-inside space-y-1 my-2" : "list-disc list-inside space-y-1 my-2";
+        const startAttr = (ordered && start && start !== 1) ? ` start="${start}"` : '';
+        return `<${tag} class="${listClasses}"${startAttr}>${body}</${tag}>`;
+    },
+     listitem(text: string) {
+        return `<li>${text}</li>`;
+    },
+    paragraph(text: string) {
+        return `<p class="my-2">${text}</p>`;
     }
-    return `<h${level} class="${baseClasses} ${sizeClass} ${colorClass}">${text}</h${level}>`;
 };
 
-renderer.table = (header: string, body: string) => {
-    return `<div class="overflow-x-auto my-4"><table class="min-w-full divide-y divide-gray-200 border border-gray-300">
-              <thead class="bg-gray-100">${header}</thead>
-              <tbody class="divide-y divide-gray-200 bg-white">${body}</tbody>
-            </table></div>`;
-};
 
-renderer.tablecell = (content: string, flags: { header: boolean; align: 'center' | 'left' | 'right' | null }) => {
-    const tag = flags.header ? 'th' : 'td';
-    const alignClass = flags.align ? `text-${flags.align}` : 'text-left';
-    const cellClasses = flags.header 
-        ? `px-4 py-2 text-xs font-medium text-gray-500 uppercase tracking-wider ${alignClass}`
-        : `px-4 py-2 text-sm text-gray-600 ${alignClass}`;
-    
-    return `<${tag} class="${cellClasses}">${content}</${tag}>`;
-};
-
-renderer.link = (href: string, title: string | null | undefined, text: string) => {
-    const titleAttr = title ? `title="${title}"` : '';
-    // Invert color for user messages
-    const linkColor = "text-blue-600 hover:underline";
-    return `<a href="${href}" target="_blank" rel="noopener noreferrer" class="${linkColor}" ${titleAttr}>${text}</a>`;
-};
-
-renderer.list = (body: string, ordered: boolean) => {
-    const tag = ordered ? 'ol' : 'ul';
-    const listClasses = ordered ? "list-decimal list-inside space-y-1 my-2" : "list-disc list-inside space-y-1 my-2";
-    return `<${tag} class="${listClasses}">${body}</${tag}>`;
-};
-
-renderer.paragraph = (text: string) => {
-    // Add vertical margin to create space between paragraphs
-    return `<p class="my-2">${text}</p>`;
-};
-
-// Use the new renderer configuration
-// FIX: Removed `breaks: true` which was causing single newlines to be treated
-// as hard breaks (<br>), preventing proper paragraph separation.
 marked.use({ renderer, gfm: true });
-// --- END FIX ---
+
 
 const MarkdownRenderer: React.FC<{ text: string }> = ({ text }) => {
-    // Note: The `text` here may already contain HTML from the renderer.
-    // DOMPurify is essential to prevent XSS from malformed markdown.
     const dirtyHtml = marked.parse(text) as string;
     const cleanHtml = DOMPurify.sanitize(dirtyHtml);
     return <div dangerouslySetInnerHTML={{ __html: cleanHtml }} />;
@@ -106,9 +97,10 @@ const Message: React.FC<MessageProps> = ({ message, onSelectSource }) => {
   const isModel = message.role === MessageRole.MODEL;
 
   const renderContent = (content: string) => {
-    // The code block splitting logic is no longer needed, as the new renderer
-    // handles code blocks correctly. However, keeping it provides a fallback
-    // and ensures hljs is applied if the markdown is not perfectly formed.
+    // A simple check to ensure content is a string before processing
+    if (typeof content !== 'string') {
+        return null;
+    }
     const parts = content.split(/(\`\`\`[\s\S]*?\`\`\`)/g);
     return parts.filter(Boolean).map((part, index) => {
       if (part.startsWith('```')) {
@@ -124,22 +116,22 @@ const Message: React.FC<MessageProps> = ({ message, onSelectSource }) => {
 
   return (
     <div className={`flex items-start gap-4 ${!isModel && 'flex-row-reverse'}`}>
-      <div className={`rounded-full p-2 flex-shrink-0 mt-1 ${isModel ? 'bg-gray-200 text-gray-600' : 'bg-blue-100 text-blue-600'}`}>
+      <div className={`rounded-full p-2 flex-shrink-0 mt-1 ${isModel ? 'bg-gray-200 dark:bg-gray-600 text-gray-600 dark:text-gray-300' : 'bg-blue-100 text-blue-600'}`}>
         {isModel ? <ModelIcon /> : <UserIcon />}
       </div>
       <div className={`max-w-3xl w-full flex flex-col ${!isModel && 'items-end'}`}>
-        <div className={`rounded-lg px-5 py-3 w-full prose prose-sm max-w-none prose-p:text-gray-800 prose-li:text-gray-700 prose-headings:text-gray-800 ${isModel ? 'bg-gray-100 text-gray-800 border border-gray-200' : 'bg-blue-500 text-white prose-p:text-white prose-li:text-blue-100 prose-headings:text-white'}`}>
+        <div className={`rounded-lg px-5 py-3 w-full prose prose-sm max-w-none ${isModel ? 'bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-100 border border-gray-200 dark:border-gray-600 dark:prose-invert' : 'bg-blue-600 text-white prose-invert'}`}>
            {message.image && (
                 <img src={message.image} alt="user upload" className="rounded-md max-w-xs mb-3" />
             )}
            
           <div>
-            {renderContent(message.content) || (isModel && <span className="w-2.5 h-2.5 bg-gray-400 rounded-full inline-block animate-pulse"></span>)}
+            {renderContent(message.content) || (isModel && <span className="w-2.5 h-2.5 bg-gray-400 dark:bg-gray-500 rounded-full inline-block animate-pulse"></span>)}
           </div>
           
           {isModel && message.sources && message.sources.length > 0 && (
-            <div className="mt-4 border-t border-gray-300/60 pt-3">
-                <h4 className={`text-xs font-bold uppercase ${isModel ? 'text-gray-500' : 'text-blue-200'} mb-2`}>Sources</h4>
+            <div className="mt-4 border-t border-gray-300/60 dark:border-gray-500/60 pt-3">
+                <h4 className={`text-xs font-bold uppercase ${isModel ? 'text-gray-500 dark:text-gray-400' : 'text-blue-200'} mb-2`}>Sources</h4>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                     {message.sources.map((source, index) => (
                         <SourceDetailCard key={index} sourceResult={source} onSelectSource={() => onSelectSource(source)} />
